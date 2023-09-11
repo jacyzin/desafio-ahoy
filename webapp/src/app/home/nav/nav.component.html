@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <button (click)="drawer.toggle()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="example-spacer"></span>
+  <span>XML Uploader</span>
+
+</mat-toolbar>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer opened="false" mode="side" position="start">
+    <mat-nav-list>
+      <mat-list-item>
+        <button routerLink="card" mat-button><mat-icon>dashboard</mat-icon> Home</button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div>
+      <app-content></app-content>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
