@@ -1,0 +1,46 @@
+main {
+  display: flex;
+  justify-content: center;
+  vertical-align: auto;
+  .spacer{
+    flex: 1 1 auto;
+  }
+  .mat-card{
+    display: flex;
+    min-width: 500px;
+  }
+  .text-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .centered {
+    font-family: sans-serif;
+    font-size: 1.3em;
+    text-align:center;
+  }
+
+  .uploadzone {
+    height: 100px;
+    display: table;
+    width: 100%;
+    padding: 10px;
+    background-color: #eee;
+    border: dashed 1px #979797;
+  }
+
+  label {
+    color: white;
+    width: 183px;
+    height: 44px;
+    border-radius: 21.5px;
+    background-color: #db202f;
+    padding: 8px 16px;
+  }
+
+
+  input[type="file"]{
+    display:none;
+  }
+
+}
