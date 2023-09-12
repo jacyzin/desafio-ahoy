@@ -9,7 +9,6 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.*;
 
-@Slf4j
 public class AgenteHandler extends DefaultHandler {
     private static final String AGENTES = "agentes";
     private static final String AGENTE = "agente";

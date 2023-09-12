@@ -6,8 +6,11 @@ import br.com.ahoy.xmluploader.adapter.out.mongodb.entity.AgenteEntity;
 import br.com.ahoy.xmluploader.application.port.in.MaintainAgentUseCase;
 import br.com.ahoy.xmluploader.application.port.out.AgentPersistence;
 import br.com.ahoy.xmluploader.domain.model.Agente;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -23,12 +26,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Service
-@Slf4j
 public class MaintainAgentService implements MaintainAgentUseCase {
 
     private AgentPersistence agentPersistence;
-
     private AgenteMapper mapper;
+    public MaintainAgentService() {}
+
 
     @Autowired
     public MaintainAgentService(AgentPersistence agentPersistence,
@@ -57,8 +60,8 @@ public class MaintainAgentService implements MaintainAgentUseCase {
     }
 
     private boolean isMimeTypeXML(String type) {
-        String MIME_APPLICATION_XML = "application/xml";
-        return MIME_APPLICATION_XML.equals(type);
+        return MediaType.TEXT_XML_VALUE.equals(type) ||
+                MediaType.APPLICATION_XML_VALUE.equals(type);
     }
 
     private Collection<Agente> lerArquivo(byte[] file) throws IOException {

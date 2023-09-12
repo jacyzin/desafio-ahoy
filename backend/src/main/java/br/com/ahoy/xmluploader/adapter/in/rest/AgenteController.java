@@ -10,15 +10,17 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/agente/v1")
+@RequestMapping("/api/agente/v1")
 @CrossOrigin(origins = "*")
 public class AgenteController {
-
-    @Autowired
     private MaintainAgentUseCase maintainAgentUseCase;
+    @Autowired
+    public AgenteController(MaintainAgentUseCase maintainAgentUseCase) {
+        this.maintainAgentUseCase = maintainAgentUseCase;
+    }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<Response<Collection<String>>> create(@RequestParam("file") MultipartFile file) {
         Response<Collection<String>> response = new Response<>();
         Collection<String> agentes = maintainAgentUseCase.create(file);
         response.setData(agentes);

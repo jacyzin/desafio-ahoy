@@ -17,6 +17,8 @@ import {MatCardModule} from "@angular/material/card";
 import {MatBadgeModule} from "@angular/material/badge";
 import {FileDragNDropDirective} from "./home/content/filedragdropdirective";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {HttpClientModule} from "@angular/common/http";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatSnackBarModule,
     MatMenuModule,
     MatCardModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatProgressSpinnerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

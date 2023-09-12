@@ -8,8 +8,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class AgentePersistenceMongoImpl implements AgentPersistence {
 
-    @Autowired
     private AgenteRepository repository;
+
+    @Autowired
+    public AgentePersistenceMongoImpl(AgenteRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public void create(AgenteEntity entity) {
