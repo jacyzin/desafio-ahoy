@@ -1,4 +1,4 @@
-<main>
+<div class="container">
   <mat-card>
     <mat-card-header>
       <mat-card-title>
@@ -6,7 +6,7 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <div style="padding: 15px;">
+      <div class="uploadFile" *ngIf="isShowUploadFiles" style="padding: 15px;">
         <div>
           <div #fileDropRef class="uploadzone" fileDragDrop (filesChangeEmiter)="onFileChange($event)">
             <svg xmlns="http://www.w3.org/2000/svg" width="63" height="64" viewBox="0 0 63 64">
@@ -20,22 +20,26 @@
               </g>
             </svg>
             <h3>Arraste os arquivos xml aqui</h3>
-            <h3>ou</h3>
-            <label for="fileDropRef">Browse for file</label>
+            <button color="primary" *ngIf="files.length > 0" (click)="sendFile()">Enviar Arquivos</button>
           </div>
         </div>
-        <div>
-          <mat-list>
-            <div mat-subheader>Arquivos</div>
-            <mat-list-item *ngFor="let file of files">
-              <mat-icon matListItemIcon>folder</mat-icon>
-              <div matListItemTitle>{{file.name}}</div>
-              <button mat-icon-button (click)="deleteFile(file)"><mat-icon color="warn">delete</mat-icon></button>
-              <mat-divider></mat-divider>
-            </mat-list-item>
-          </mat-list>
+        <div class="items">
+          <mat-toolbar>
+            <mat-toolbar-row *ngFor="let file of files">
+              <span>{{file.name}}</span>
+              <button (click)="deleteFile(file)"><mat-icon color="warn">delete</mat-icon></button>
+            </mat-toolbar-row>
+          </mat-toolbar>
+<!--          <mat-list>-->
+<!--            <mat-list-item *ngFor="let file of files">-->
+<!--              <mat-icon mat-list-icon>folder</mat-icon>-->
+<!--              <div mat-line>{{file.name}} <button (click)="deleteFile(file)"><mat-icon color="warn">delete</mat-icon></button></div>-->
+
+<!--            </mat-list-item>-->
+<!--          </mat-list>-->
         </div>
       </div>
+      <mat-progress-spinner *ngIf="isSendingFiles" style="margin:0 auto;" mode="indeterminate"></mat-progress-spinner>
     </mat-card-content>
   </mat-card>
-</main>
+</div>

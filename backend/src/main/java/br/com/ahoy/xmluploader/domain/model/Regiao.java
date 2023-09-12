@@ -11,15 +11,12 @@ import lombok.*;
 @ToString
 @Data
 public class Regiao {
-
     @JsonProperty("sigla")
     private String sigla;
-
     @JsonProperty("geracao")
     private ValoresBase geracao;
     @JsonProperty("compra")
     private ValoresBase compra;
-
     @JsonProperty("precoMedio")
     private ValoresBase precoMedio;
 
